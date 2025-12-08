@@ -1,28 +1,40 @@
-#include<stdio.h>
-int main(){
-	int arr[5] = {100,24343,32344,433,0};
-	int i,j;
-	for(i=0;i<5;i++){
-		printf("%d ", arr[i]);
-	}
-	//bubble sort
-	for(i=0;i<5-1;i++){
-		//bool flag = true;
-		for(j=0;j<5-1-i;j++){
-			if(arr[j]<arr[j+1]){
-				int temp =arr[j];
-				arr[j] = arr[j+1];
-				arr[j+1] = temp;
-				//flag = false;			
-			}
-		}
-	}
-	//if(flag == true) break;
-	
-	printf("\n");
-	for(i=0;i<5;i++){
-		printf("%d ", arr[i]);
-	}
-	
-	return 0;
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int a, b;
+    char op[3];   // to store operator like +, -, *, /, ==, >= etc.
+
+    // Take number inputs
+    printf("Enter first number: ");
+    scanf("%d", &a);
+
+    printf("Enter second number: ");
+    scanf("%d", &b);
+
+    // Take operator input
+    printf("Enter operator (+, -, *, /): ");
+    scanf("%s", op);
+
+    // Perform operation
+    if (strcmp(op, "+") == 0) {
+        printf("Result = %d\n", a + b);
+    }
+    else if (strcmp(op, "-") == 0) {
+        printf("Result = %d\n", a - b);
+    }
+    else if (strcmp(op, "*") == 0) {
+        printf("Result = %d\n", a * b);
+    }
+    else if (strcmp(op, "/") == 0) {
+        if (b != 0)
+            printf("Result = %d\n", a / b);
+        else
+            printf("Error: Division by zero!\n");
+    }
+    else {
+        printf("Invalid operator!\n");
+    }
+
+    return 0;
 }
